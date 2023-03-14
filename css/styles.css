@@ -495,7 +495,6 @@ body {
   line-height: 24px;
   letter-spacing: 0.02em;
   display: flex;
-
   text-align: center;
   color: #ffffff;
 }
@@ -758,5 +757,7 @@ span {
   transform: translate(-50%, -50%) scale(0);
 }
 .modal-btn-close-icon {
-  color: #2e2f42;
+  width: 8px;
+  height: 8px;
+  fill: black;
 }

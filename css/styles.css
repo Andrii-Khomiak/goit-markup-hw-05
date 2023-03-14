@@ -19,6 +19,8 @@ ul {
 }
 img {
   display: block;
+  width: 100%;
+  height: auto;
 }
 
 body {
@@ -95,6 +97,23 @@ body {
   color: var(--title-text-color);
   display: block;
   padding: 24px, 10px;
+  position: relative;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.active {
+  color: var(--accent-color);
+}
+.header-link.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
 }
 .header-link:hover,
 .header-link:focus {
@@ -117,10 +136,10 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-
   letter-spacing: 0.02em;
-
   color: var(--primary-text-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-mal:hover,
@@ -139,6 +158,8 @@ body {
   line-height: 24px;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-tel:hover,
 .header-tel:focus {
@@ -197,6 +218,8 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: 0px;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-button:hover,
 .hero-button:focus {
@@ -364,6 +387,8 @@ body {
   border-radius: 50%;
   background-color: #4d5ae5;
   color: var(--accent-color);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-social-link:is(:hover, :focus) {
   background-color: #404bbf;
@@ -431,6 +456,8 @@ body {
   border-radius: 4px;
   width: 168px;
   height: 88px;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customers-link:is(:hover, :focus) {
   color: #404bbf;
@@ -512,6 +539,8 @@ span {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.1);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-social-link:is(:hover, :focus) {
   background-color: #404bbf;
@@ -570,6 +599,8 @@ span {
   letter-spacing: 0.04em;
   color: var(--accent-color);
   background-color: #f4f4fd;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .content-buttonall:hover,
@@ -603,6 +634,8 @@ span {
   outline: none;
   white-space: nowrap;
   background-color: #ffffff;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-two {
   display: block;
@@ -611,6 +644,35 @@ span {
   display: block;
   max-width: 100%;
   height: auto;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.img-portfolio:hover .portfolio-text-overlay {
+  transform: translateY(0);
+}
+.portfolio-text-overlay {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  background: #4d5ae5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+  transform: translateY(100%);
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: auto;
+}
+.team-top-wrap {
+  position: relative;
+  overflow: hidden;
 }
 .img-portfolio:is(:hover, :focus) {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
@@ -652,4 +714,49 @@ span {
   line-height: 24px;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal {
+  width: 408px;
+  height: 576px;
+  padding: 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal-close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(231, 233, 252, 1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+..backdrop.is-hiden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+.modal-btn-close-icon {
+  color: #2e2f42;
 }

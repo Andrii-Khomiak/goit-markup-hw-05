@@ -757,8 +757,6 @@ span {
   transform: translate(-50%, -50%) scale(0);
 }
 .modal-btn-close-icon {
-  width: 8px;
-  height: 8px;
   fill: #2e2f42;
   cursor: pointer;
 }
